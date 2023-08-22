@@ -1,0 +1,15 @@
+import qrcode
+
+#website_link = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+website_link = input("Enter Link: ")
+qr = qrcode.QRCode(version=1, box_size= 5, border=5)
+
+qr.add_data(website_link)
+qr.make()
+
+fColor = input("Enter fill colour: ")
+bColor = input("Enter back colour: ")
+img = qr.make_image(fill_color = fColor, back_color = bColor)
+
+fName = input("Enter file name: ")
+img.save(fName + ".png")
